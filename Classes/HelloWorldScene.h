@@ -4,6 +4,12 @@
 #include "cocos2d.h"
 #include "cocos-ext.h" 
 #include "SimpleAudioEngine.h"
+//#include "gui/CocosGUI.h"
+#include "cocostudio/CocoStudio.h"
+
+using namespace cocos2d;
+using namespace cocostudio;
+using namespace ui;
 
 using namespace cocos2d::extension;
 
@@ -13,9 +19,11 @@ private:
     //创建精灵数组
     cocos2d::Vector<cocos2d::Sprite*> _targets;
     cocos2d::Vector<cocos2d::Sprite*> _projectiles;
+    cocos2d::Vector<cocos2d::Sprite*> _skills;
     //创建敌机数组
     cocos2d::Vector<cocos2d::Sprite*> _enemys;
     int _background_imageHeight;
+    int _count;
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
@@ -39,8 +47,10 @@ public:
     //触碰
     void scheduleUpdate(float f);
     
+    //选择技能
+    void setSkillShow(int i);
 //    virtual bool ccTouchBegan(cocos2d::Touch* touch, cocos2d::CCEvent* event);//按下
-    
+    void updateCount(float f);
     CREATE_FUNC(HelloWorld);
 };
 
